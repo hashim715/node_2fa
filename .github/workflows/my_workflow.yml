@@ -20,5 +20,5 @@ jobs:
       
       - name: Build and push Docker image
         run: |
-          docker build -t hashim715/node_2fa:latest
+          docker build -t hashim715/node_2fa:latest .
           docker push hashim715/node_2fa:latest
