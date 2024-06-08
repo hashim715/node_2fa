@@ -241,10 +241,23 @@ const generateBase32Secret = () => {
   return base32;
 };
 
+const testingapi = async (req, res, next) => {
+  try {
+    return res
+      .status(200)
+      .json({ success: true, message: "Good to see you baby" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ success: false, message: "Something went wrong" });
+  }
+};
+
 module.exports = {
   register,
   login,
   enableTwoWayAuthentication,
   verify2fa,
   validateotp,
+  testingapi,
 };
