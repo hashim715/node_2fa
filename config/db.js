@@ -1,7 +1,8 @@
 const { PrismaClient } = require("@prisma/client");
+require("dotenv").config();
 
 const prisma = new PrismaClient({
-  datasourceUrl: "postgresql://postgres:pakistan@715@localhost:5432/node_2fa",
+  datasourceUrl: process.env.DATABASE_URL,
 });
 
 module.exports = { prisma };

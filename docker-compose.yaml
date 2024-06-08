@@ -1,0 +1,22 @@
+version: "3.4"
+services:
+  node_2fa:
+    image: node_2fa
+    build: .
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/node_2fa
+      - JWT_SECRET=0c0a9f8d28596ec5dbe6e4d66024a137a847543e6007927cc786913cd2287939f91719
+      - JWT_SECRET_REFRESH=dfe520f1e28cc249f28af30a6e2eaf4a489ea113c201aa21a5e50cc52d47fc225dda9a
+      - JWT_EXPIRE=5min
+      - PRISMA_CONFIG=/usr/src/app/prisma/schema.prisma
+      - JWT_REFRESH_EXP=10 days
+    ports:
+      - 5000:5000
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=node_2fa
