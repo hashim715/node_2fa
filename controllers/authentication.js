@@ -245,7 +245,7 @@ const testingapi = async (req, res, next) => {
   try {
     return res
       .status(200)
-      .json({ success: true, message: "Good to see you baby" });
+      .json({ success: true, message: "Good to see you baby nice" });
   } catch (err) {
     return res
       .status(500)
